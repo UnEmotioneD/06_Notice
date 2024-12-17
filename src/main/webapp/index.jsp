@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index.jsp File</title>
+<title>index.jsp</title>
 <style>
 .section {
 	margin-bottom: 20px;
