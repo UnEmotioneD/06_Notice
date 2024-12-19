@@ -53,7 +53,7 @@ public class NoticeWriteServlet extends HttpServlet {
 		File dir = new File(savePath); // 오늘 날짜로 지정한 폴더
 
 		if (!dir.exists()) { // 해당 경로에 폴더가 생성되어 있지 않을때
-			dir.mkdir(); // 폴더 생성
+			dir.mkdirs(); // 폴더 생성
 		}
 
 		MultipartRequest mRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyRenamePolicy());
