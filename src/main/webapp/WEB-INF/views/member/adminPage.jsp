@@ -85,7 +85,6 @@ input[type=checkbox].chk+label {
 	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
 	<script>
-	
 		function refresh(){
 			window.location.href = "/member/adminPage";
 		}
