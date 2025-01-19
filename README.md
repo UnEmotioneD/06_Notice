@@ -44,11 +44,11 @@
 - check `Apache Tomcat v9.0`
 
 ### Java Compiler / 
-- `compiler compliance level:` ==17== 
+- `compiler compliance level:` **17**
 
 ### Project Facets / 
-- `Dynamic Web Module` to ==4.0== 
-- `Java` to ==17==  
+- `Dynamic Web Module` to **4.0**
+- `Java` to **17**
 
 ### Targeted Runtimes /
 - select `Apache Tomcat v9.0` 
