@@ -169,6 +169,7 @@ a {
 
 .footer {
 	background-color: var(--gray6);
+	text-align: center;
 }
 
 .footer>div {
