@@ -1,14 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>updateFrm.jsp</title>
-<%-- summerNote 사용을 위한 라이브러리 --%>
-<script src="/resources/summernote/summernote-lite.js"></script>
-<script src="/resources/summernote/lang/summernote-ko-KR.js"></script>
 <link rel="stylesheet" href="/resources/summernote/summernote-lite.css">
 <style>
 .delBtn:hover {
@@ -79,11 +75,13 @@
 		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 	</div>
 
+	<%-- summerNote 사용을 위한 라이브러리 --%>
+	<script src="/resources/summernote/summernote-lite.js"></script>
+	<script src="/resources/summernote/lang/summernote-ko-KR.js"></script>
 	<script>
 		//파일 삭제 아이콘 (-) 클릭시 동작 함수
 		function delFile(obj, fileNo) {
 			swal({
-
 				title : "삭제",
 				text : "첨부파일을 삭제하시겠습니까?",
 				icon : "warning",
@@ -105,9 +103,9 @@
 				if (isConfirm) {
 					// 삭제 클릭 시 실시간으로 삭제처리하지 않고 수정 버튼 클릭시 삭제될 수 있도록 form 태그 내부에 hidden 으로 추가
 					let inputEl = $('<input>');
-					inputlEl.attr('type', 'hidden');
+					inputEl.attr('type', 'hidden');
 					inputEl.attr('name', 'delFileNo');
-					inputlEl.attr('value', fileNo);
+					inputEl.attr('value', fileNo);
 
 					$(obj).parent().remove(); // 화면에서 사라지도록
 					$('form').parent(inputEl); // 첫번째 자식으로 추가
