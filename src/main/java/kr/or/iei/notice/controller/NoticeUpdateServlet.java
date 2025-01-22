@@ -61,7 +61,6 @@ public class NoticeUpdateServlet extends HttpServlet {
 		String noticeContent = mRequest.getParameter("noticeContent");
 
 		// type 이 file 인 태그들
-		@SuppressWarnings("unchecked")
 		Enumeration<String> files = mRequest.getFileNames();
 
 		ArrayList<NoticeFile> addFileList = new ArrayList<>();
