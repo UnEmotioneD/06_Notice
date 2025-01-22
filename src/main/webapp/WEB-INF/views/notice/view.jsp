@@ -31,7 +31,7 @@
 }
 
 .inputCommentBox {
-	maring-botton: 20px;
+	margin-top: 20px;
 }
 
 .comment-write button {
