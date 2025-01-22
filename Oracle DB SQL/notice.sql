@@ -34,12 +34,15 @@ comment on column tbl_member.enroll_date is '가입일';
 
 create sequence seq_member maxvalue 9999 cycle;
 
-insert into tbl_member values ( to_char( sysdate, 'YYMMDD') || lpad( seq_member.nextval, 4, '0'), 'admin999', 'admin999!', '관리자', 'admin@naver.com', '010-1234-1234', '서울 강남구', 1, sysdate );
+-- 비밀번호 암호화 이후에는 insert 문으로 만들 계정은 로그인 할 수 없음
+-- insert into tbl_member values ( to_char( sysdate, 'YYMMDD') || lpad( seq_member.nextval, 4, '0'), 'admin999', 'admin999!', '관리자', 'admin@naver.com', '010-1234-1234', '서울 강남구', 1, sysdate );
+-- insert into tbl_member values ( to_char( sysdate, 'YYMMDD') || lpad( sqq_member.nextval, 4, '0'), 'daniel999', 'daniel999@', '김찬희', 'blackeagle10@icloud.com', '010-8645-5542', '경기도 용인시', 2, sysdate );
 insert into tbl_member values ( to_char( sysdate, 'YYMMDD') || lpad( seq_member.nextval, 4, '0'), 'user01', 'user1234!@#$', '유저1', 'user1@naver.com', '010-1234-1234', '서울 강남구', 3, sysdate );
 insert into tbl_member values ( to_char( sysdate, 'YYMMDD') || lpad( seq_member.nextval, 4, '0'), 'user02', 'user2234!@#$', '유저2', 'user2@naver.com', '010-1234-1234', '서울 강남구', 3, sysdate );
 insert into tbl_member values ( to_char( sysdate, 'YYMMDD') || lpad( seq_member.nextval, 4, '0'), 'user03', 'user3234!@#$', '유저3', 'user3@naver.com', '010-1234-1234', '서울 강남구', 3, sysdate );
 insert into tbl_member values ( to_char( sysdate, 'YYMMDD') || lpad( seq_member.nextval, 4, '0'), 'user04', 'user4234!@#$', '유저4', 'user4@naver.com', '010-1234-1234', '서울 강남구', 2, sysdate );
 insert into tbl_member values ( to_char( sysdate, 'YYMMDD') || lpad( seq_member.nextval, 4, '0'), 'user05', 'user5234!@#$', '유저5', 'user5@naver.com', '010-1234-1234', '서울 강남구', 3, sysdate );
+
 
 create table tbl_notice_type (
    notice_cd    number primary key, -- 메뉴 코드
@@ -66,12 +69,6 @@ create table tbl_notice (
 );
 
 create sequence seq_notice maxvalue 9999 cycle;
-
-insert into tbl_notice values ( to_char( sysdate, 'YYMMDD') || lpad( seq_notice.nextval, 4, '0'), 1, 'test title', 'test content', 'user01', sysdate, default );
-insert into tbl_notice values ( to_char( sysdate, 'YYMMDD') || lpad( seq_notice.nextval, 4, '0'), 2, 'test title', 'test content', 'user02', sysdate, default );
-insert into tbl_notice values ( to_char( sysdate, 'YYMMDD') || lpad( seq_notice.nextval, 4, '0'), 3, 'test title', 'test content', 'user03', sysdate, default );
-insert into tbl_notice values ( to_char( sysdate, 'YYMMDD') || lpad( seq_notice.nextval, 4, '0'), 4, 'test title', 'test content', 'user04', sysdate, default );
-insert into tbl_notice values ( to_char( sysdate, 'YYMMDD') || lpad( seq_notice.nextval, 4, '0'), 5, 'test title', 'test content', 'user05', sysdate, default );
 
 create table tbl_notice_file (
    file_no   varchar2(10) primary key,
@@ -127,3 +124,5 @@ alter table tbl_member modify member_pw char(60);
 alter table tbl_notice modify notice_writer varchar2(30);
 
 commit;
+
+update tbl_member set member_level = 1 where member_id = 'admin999';
