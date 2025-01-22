@@ -37,10 +37,6 @@ public class NoticeDeleteServlet extends HttpServlet {
 		String noticeCd = request.getParameter("noticeCd");
 		String noticeCdNm = request.getParameter("noticeCdNm");
 
-		System.out.println(noticeNo);
-		System.out.println(noticeCd);
-		System.out.println(noticeCdNm);
-
 		NoticeService service = new NoticeService();
 		ArrayList<NoticeFile> delList = service.deleteNotice(noticeNo);
 		if (delList != null) {

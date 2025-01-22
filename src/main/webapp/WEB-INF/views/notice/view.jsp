@@ -52,6 +52,7 @@
 		<main class="content">
 			<section class="section notice-view-wrap">
 				<div class="page-title">${notice.noticeCdNm}</div>
+				<input type="hidden" value="${notice.noticeCd}">
 				<table class="tbl notice-view">
 
 					<tr>
@@ -68,11 +69,11 @@
 
 					<tr>
 						<th>첨부파일</th>
-							<td colspan="5">
-								<c:forEach var="file" items="${notice.fileList}">
-									<a href="javascript:fileDown('${file.fileName}', '${file.filePath}')">${file.fileName}</a>
-								</c:forEach>
-							</td>
+						<td colspan="5"><c:forEach var="file"
+								items="${notice.fileList}">
+								<a
+									href="javascript:fileDown('${file.fileName}', '${file.filePath}')">${file.fileName}</a>
+							</c:forEach></td>
 					</tr>
 
 					<tr>
@@ -158,14 +159,40 @@
 					+ '&filePath=' + filePath;
 		}
 
-		function deleteNotice() {
-			window.alert("Create deleteNotice function()");
+		function deleteNotice(noticeNo) {
+			swal({
+				title : "삭제",
+				text : "게시글을 삭제 하시겠습니까?",
+				icon : "warning",
+				buttons : {
+					cancle : {
+						text : "취소",
+						value : false,
+						visible : true,
+						closeModal : true,
+					},
+					confirm : {
+						text : "삭제",
+						value : true,
+						visible : true,
+						closeModal : true,
+					}
+				}
+			}).then(
+					function(isConfirm) {
+						if (isConfirm) {
+							location.href = '/notice/delete?noticeNo='
+									+ noticeNo + '&noticeCd='
+									+ '${notice.noticeCd}' + '&noticeCdNm='
+									+ '${notice.noticeCdNm}';
+						}
+					});
 		}
 
 		function deleteComment(commentNo) {
 			swal({
 				title : "삭제",
-				text : "댓글을 삭제 하세겠습니까?",
+				text : "댓글을 삭제 하시겠습니까?",
 				icon : "warning",
 				buttons : {
 					cancle : {

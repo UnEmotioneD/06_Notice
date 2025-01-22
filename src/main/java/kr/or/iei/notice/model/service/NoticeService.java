@@ -247,14 +247,10 @@ public class NoticeService {
 		}
 	}
 
-	// TODO Has debug code
 	public ArrayList<NoticeFile> deleteNotice(String noticeNo) {
 		Connection conn = JDBCTemplate.getConnection();
 		ArrayList<NoticeFile> delList = dao.selectNoticeFileList(conn, noticeNo);
 		int result = dao.deleteNotice(conn, noticeNo);
-
-		System.out.println(delList);
-		System.out.println(result);
 
 		if (result > 0) {
 			JDBCTemplate.commit(conn);
