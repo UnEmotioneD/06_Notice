@@ -36,6 +36,7 @@ public class ApiEmailSendServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -53,6 +54,7 @@ public class ApiEmailSendServlet extends HttpServlet {
 
 		// 2. 세션 설정 및 인증 정보 설정
 		Session session = Session.getDefaultInstance(prop, new Authenticator() {
+			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication("unemotioned@naver.com", "Blackdwarf9");
 			}
@@ -97,6 +99,7 @@ public class ApiEmailSendServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);

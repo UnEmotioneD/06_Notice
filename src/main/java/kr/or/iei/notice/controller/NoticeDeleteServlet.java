@@ -31,6 +31,7 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String noticeNo = request.getParameter("noticeNo");
@@ -42,10 +43,10 @@ public class NoticeDeleteServlet extends HttpServlet {
 		if (delList != null) {
 			String rootPath = request.getSession().getServletContext().getRealPath("/");
 
-			for (int i = 0; i < delList.size(); i++) {
+			for (NoticeFile element : delList) {
                 //파일 업로드 날짜 == 삭제해야할 폴더명
-				String uploadDate = delList.get(i).getFilePath().substring(0, 8);
-				String delFilePath = rootPath + "resources/upload/" + uploadDate + "/" + delList.get(i).getFilePath();
+				String uploadDate = element.getFilePath().substring(0, 8);
+				String delFilePath = rootPath + "resources/upload/" + uploadDate + "/" + element.getFilePath();
 
 				File delFile = new File(delFilePath);
 				// 해당 경로에 삭제 파일이 존재하면
@@ -65,6 +66,7 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);

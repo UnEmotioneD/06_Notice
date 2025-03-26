@@ -30,6 +30,7 @@ public class MemberUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 인코딩 ->필터
 
@@ -63,9 +64,9 @@ public class MemberUpdateServlet extends HttpServlet {
 			// 1) 재로그인을 위해 새션을 파기하고 로그인 화면으로 이동
 			/*
 			 * HttpSession session = request.getSession(false);
-			 * 
+			 *
 			 * if (session != null) { session.invalidate(); }
-			 * 
+			 *
 			 * request.setAttribute("title", "알림"); request.setAttribute("msg",
 			 * "회원 정보가 수정되었습니다 재로그인 하시기바랍니다"); request.setAttribute("icon", "success");
 			 * request.setAttribute("loc", "/member/loginFrm");
@@ -108,6 +109,7 @@ public class MemberUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

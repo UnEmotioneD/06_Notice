@@ -361,7 +361,7 @@ public class NoticeDao {
 
 		// notice_cd 별로 그룹을 지어 행번호를 조회
 		String query = "SELECT * FROM ( SELECT ROW_NUMBER() OVER ( PARTITION BY NOTICE_CD ORDER BY NOTICE_DATE DESC ) AS RNUM, A.* FROM TBL_NOTICE A ) WHERE RNUM < = 5";
-		ArrayList<Notice> list = new ArrayList<Notice>();
+		ArrayList<Notice> list = new ArrayList<>();
 
 		try {
 			pt = conn.prepareStatement(query);

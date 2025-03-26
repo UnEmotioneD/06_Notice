@@ -19,21 +19,23 @@ public class SearchNoticeTypeListener implements ServletContextListener {
 	 * Default constructor.
 	 */
 	public SearchNoticeTypeListener() {
-		
+
 	}
 
 	/**
 	 * @see ServletContextListener#contextDestroyed(ServletContextEvent)
 	 */
 	// 소멸될때
+	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		
+
 	}
 
 	/**
 	 * @see ServletContextListener#contextInitialized(ServletContextEvent)
 	 */
 	// 생성될때
+	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		CommonService commonService = new CommonService();
 		ArrayList<NoticeType> typeList = commonService.selectNoticeTypeList();
